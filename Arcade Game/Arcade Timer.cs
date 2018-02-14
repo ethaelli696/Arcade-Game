@@ -28,7 +28,10 @@ namespace Arcade_Game
             //create graphic objects
             Graphics Form1 = CreateGraphics();
             SolidBrush drawBrush = new SolidBrush(Color.Red);
+            SolidBrush fontBrush = new SolidBrush(Color.Black);
             Pen drawPen = new Pen(Color.Red, 10);
+            Font drawFont = new Font("Arial", 16);
+            Font bigFont = new Font("Copperplate Garamond Bold", 100, FontStyle.Bold);
             //sound
             SoundPlayer beep = new SoundPlayer(Properties.Resources.Beep);
             SoundPlayer pacman = new SoundPlayer(Properties.Resources.Pacman);
@@ -57,8 +60,15 @@ namespace Arcade_Game
             Thread.Sleep(1000);
             //
             countdown.Visible = false;
-            Form1.DrawEllipse(drawPen, 25, 25, 200, 100);
-            Form1.FillEllipse(drawBrush, 25, 25, 200, 100);
+            Form1.Clear(Color.Green);
+            Form1.DrawEllipse(drawPen, 100, 100, 300, 200);
+            Form1.FillEllipse(drawBrush, 100, 100, 300, 200);
+            Form1.DrawString("C", bigFont, fontBrush, 110, 110);
+            Form1.DrawString("RAMS", drawFont, fontBrush, 200, 170);
+            Form1.TranslateTransform(500, 75);
+            Form1.RotateTransform(90);
+            Form1.DrawString("Central Rams Arcade", drawFont, drawBrush, new Rectangle());
+            Form1.ResetTransform();
             //Refresh();
             pacman.Play();
            // Refresh();
